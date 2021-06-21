@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+} 
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -13,7 +17,6 @@ main {
 }
 
 .text--medium {
-    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
@@ -32,9 +35,10 @@ main {
     flex-direction: column;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    background-color: blueviolet;
+    background-color: #fff;
     padding: 10px;
     width: 100%;
+    border: 1px solid #D0D0D0;
 }
 
 .post:hover {
@@ -43,7 +47,7 @@ main {
 
 .post_image-container {
     width: 100%;
-    height: 250px;
+    height: 200px;
     padding-top: 56.25%;
     overflow: hidden;
     position: relative;
@@ -82,6 +86,74 @@ main {
     margin-top: 15px;
 }
 
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header--info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header--name {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.name {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 10px;
+}
+
+.likes {
+    margin-left: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 12px 18px;
+    border: none;
+    background-color: #00BFFF;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #1E90FF;
+}
+
+.btn:active {
+    background-color: #1E90FF;
+    transform: translateY(4px);
+}
+
+
 @media only screen and (max-width: 992px) {
     main {
         grid-gap: 20px;
@@ -115,29 +187,5 @@ main {
     }
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header--info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header--name {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.avatar {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
 
 
