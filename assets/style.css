@@ -98,10 +98,21 @@ hr {
     margin-bottom: 15px;
 }
 
+.header-modal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
+
 .header--info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header--info-modal {
+    display: flex;
 }
 
 .header--name {
@@ -156,6 +167,68 @@ hr {
     background-color: #1E90FF;
     transform: translateY(4px);
 }
+
+.hidden {
+    display: none;
+  }
+  
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+    font-size: 80px;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .img-modal {
+    height: 100%;
+    width: 60%;
+    margin-right: 10px;
+  }
+
+  .inner-modal {
+      display: flex;
+      height: 100%;
+      width: 100%;
+  }
+
+  .left-side {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .line-tag {
+    border: 1px solid #C0C0C0;
+    margin-bottom: 20px;
+  }
 
 
 @media only screen and (max-width: 992px) {

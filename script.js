@@ -12,9 +12,12 @@ async function getPosts() {
     }
 }
 let index = 0;
+let postObject = {}
+
 
 async function renderPosts() {
     let posts = await getPosts();
+    Object.assign(postObject, posts[0])
     let html = '';
     let counter = 0;
     for (let i = index;i < posts.length;i++){
@@ -29,7 +32,7 @@ async function renderPosts() {
                 />
                 <div id="postClicked" class="header--name">
                     <p id="postClicked" class="name"><strong>${posts[i].name}</strong></p>
-                    <p id="postClicked" class="date">15 oct 2019</p>
+                    <p id="postClicked" class="date">${posts[i].date}</p>
                 </div>
             </div>
             <div>
@@ -82,6 +85,66 @@ buttonLoad.addEventListener('click', () => {
 
 document.body.addEventListener( 'click', function ( event ) {
     if( event.target.id === 'postClicked' ) {
-      
+        showModal();
+        modal.classList.remove('hidden');
+        overlay.classList.remove('hidden');
     };
-  } );
+  });
+
+  const modal = document.querySelector('.modal');
+  const overlay = document.querySelector('.overlay');
+  const btnCloseModal = document.querySelector('.close-modal');
+  
+  
+  const closeTheModal = function () {
+      modal.classList.add('hidden');
+      overlay.classList.add('hidden');
+  }
+
+  function showModal() {
+    let html = `<div class="inner-modal">
+    <img class="img-modal" src="${postObject.image}" />
+        <div class="left-side">
+            <header class="header-modal">
+                <div class="header--info-modal">
+                    <img 
+                        class="avatar" src="${postObject.profile_image}" 
+                    />
+                    <div class="header--name">
+                        <p class="name"><strong>${postObject.name}</strong></p>
+                        <p class="date">${postObject.date}</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="/assets/icons/instagram-logo.svg" alt="insta svg icon"/>
+                </div>
+            </header>
+            <div class="post__content">
+                <hr class="line-tag">
+                <div class="post__description">
+                    <p class="description">
+                        ${postObject.caption}
+                    </p>
+                </div>
+                <div class="notifications">
+                    <img src="/assets/icons/heart.svg" alt="insta svg icon"/>
+                    <p class="likes">${postObject.likes}</p>                        
+                </div>
+            </div>
+        </div>
+    </div>`;
+    let modalContainer = document.getElementById('modal');
+    modalContainer.innerHTML = html;
+  }
+
+  
+  btnCloseModal.addEventListener('click',closeTheModal);
+  overlay.addEventListener('click',closeTheModal);
+  
+  document.addEventListener('keydown',function(event){
+      if(event.key === 'Escape'){
+          if(!modal.classList.contains('hidden')){
+              closeTheModal();
+          }
+      }
+  });
