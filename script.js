@@ -1,6 +1,11 @@
 'use strict'
 
-// Fetching data from data.json file
+let index = 0;
+let postObject = {}
+let buttonLoad = document.getElementById('btn');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
 
 async function getPosts() {
     let url = '/data.json';
@@ -11,9 +16,6 @@ async function getPosts() {
         console.log(error);
     }
 }
-let index = 0;
-let postObject = {}
-
 
 async function renderPosts() {
     let posts = await getPosts();
@@ -77,8 +79,6 @@ async function renderPosts() {
 
 renderPosts();
 
-let buttonLoad = document.getElementById('btn');
-
 buttonLoad.addEventListener('click', () => {
     renderPosts();
 })
@@ -91,9 +91,6 @@ document.body.addEventListener( 'click', function ( event ) {
     };
   });
 
-  const modal = document.querySelector('.modal');
-  const overlay = document.querySelector('.overlay');
-  const btnCloseModal = document.querySelector('.close-modal');
   
   
   const closeTheModal = function () {
