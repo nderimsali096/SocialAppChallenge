@@ -18,45 +18,39 @@ async function renderPosts() {
     let html = '';
     let counter = 0;
     for (let i = index;i < posts.length;i++){
-        if (i === 3) {
-            if (counter === 3) {
-                break
-            }
-        } else {
-            if (counter === 4) {
-                break
-            }
+        if (counter === 4) {
+            break
         }
-        let htmlSegment = `<div class="post">
-        <header class="header">
-            <div class="header--info">
-                <img 
+        let htmlSegment = `<div id="postClicked" class="post">
+        <header id="postClicked" class="header">
+            <div id="postClicked" class="header--info">
+                <img id="postClicked" 
                     class="avatar" src="${posts[i].profile_image}" 
                 />
-                <div class="header--name">
-                    <p class="name"><strong>${posts[i].name}</strong></p>
-                    <p class="date">15 oct 2019</p>
+                <div id="postClicked" class="header--name">
+                    <p id="postClicked" class="name"><strong>${posts[i].name}</strong></p>
+                    <p id="postClicked" class="date">15 oct 2019</p>
                 </div>
             </div>
             <div>
-                <img src="/assets/icons/instagram-logo.svg" alt="insta svg icon"/>
+                <img id="postClicked" src="/assets/icons/instagram-logo.svg" alt="insta svg icon"/>
             </div>
         </header>
-        <div class="post_image-container">
-            <img 
+        <div id="postClicked" class="post_image-container">
+            <img id="postClicked" 
                 src="${posts[i].image}"
             />
         </div>
-        <div class="post__content">
-            <div class="post__description">
-                <p class="description">
+        <div id="postClicked" class="post__content">
+            <div id="postClicked" class="post__description">
+                <p id="postClicked" class="description">
                    ${posts[i].caption}
                 </p>
             </div>
             <hr class="line-tag">
-            <div class="notifications">
-                <img src="/assets/icons/heart.svg" alt="insta svg icon"/>
-                <p class="likes">${posts[i].likes}</p>                        
+            <div id="postClicked" class="notifications">
+                <img id="postClicked" src="/assets/icons/heart.svg" alt="insta svg icon"/>
+                <p id="postClicked" class="likes">${posts[i].likes}</p>                        
             </div>
         </div>
         </div>`;
@@ -69,7 +63,13 @@ async function renderPosts() {
     if (index === posts.length) {
         buttonLoad.style.display = "none";
     }
-    
+    if (index > 4) {
+        window.scrollTo({
+            left: 0,
+            top: document.body.scrollHeight,
+            behavior: 'smooth',
+        })
+    }
 }
 
 renderPosts();
@@ -79,3 +79,9 @@ let buttonLoad = document.getElementById('btn');
 buttonLoad.addEventListener('click', () => {
     renderPosts();
 })
+
+document.body.addEventListener( 'click', function ( event ) {
+    if( event.target.id === 'postClicked' ) {
+      
+    };
+  } );
