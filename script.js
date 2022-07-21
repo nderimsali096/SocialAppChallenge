@@ -16,7 +16,7 @@ async function getPosts() {
     console.log(error);
   }
 }
-// adding some comments
+// adding some comments 1
 async function renderPosts() {
   let posts = await getPosts();
   Object.assign(postObject, posts[0]);
